@@ -4,9 +4,6 @@ author: INVIXO
 branding:
   color: green
   icon: cloud-drizzle
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
 inputs:
   site_url:
     description: 'site_url'
@@ -23,3 +20,12 @@ inputs:
   glob:
     description: 'glob'
     required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    SITE_URL: ${{ inputs.site_url }}
+    CLIENT_ID: ${{ inputs.client_id }}
+    CLIENT_SECRET: ${{ inputs.client_secret }}
+    RELATIVE_URL: ${{ inputs.relative_url }}
+    GLOB: ${{ inputs.glob }}
