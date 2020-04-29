@@ -6,7 +6,11 @@ import * as fs from "fs";
 async function run() {
   console.dir(process.env);
   console.dir("hello world1");
-  console.dir(process.env.SITE_URL);
+  console.dir(process.env.INPUT_SITE_URL);
+  console.dir(process.env.INPUT_CLIENT_ID);
+  console.dir(process.env.INPUT_CLIENT_SECRET);
+  console.dir(process.env.INPUT_RELATIVE_URL);
+  console.dir(process.env.INPUT_GLOB);
   console.dir("hello world2");
   return;
 

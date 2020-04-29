@@ -24,8 +24,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    SITE_URL: ${{ inputs.site_url }}
-    CLIENT_ID: ${{ inputs.client_id }}
-    CLIENT_SECRET: ${{ inputs.client_secret }}
-    RELATIVE_URL: ${{ inputs.relative_url }}
-    GLOB: ${{ inputs.glob }}
+    INPUT_SITE_URL: ${{ inputs.site_url }}
+    INPUT_CLIENT_ID: ${{ inputs.client_id }}
+    INPUT_CLIENT_SECRET: ${{ inputs.client_secret }}
+    INPUT_RELATIVE_URL: ${{ inputs.relative_url }}
+    INPUT_GLOB: ${{ inputs.glob }}
