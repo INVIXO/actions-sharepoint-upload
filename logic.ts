@@ -4,7 +4,7 @@ import * as path from "path";
 import * as fs from "fs";
 
 async function run() {
-  console.dir(process.env.SITE_URL);
+  console.dir(process.env);
   console.dir("hello world");
   return;
 
