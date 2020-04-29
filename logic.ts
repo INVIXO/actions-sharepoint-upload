@@ -2,6 +2,7 @@ import { SPFetchClient } from "@pnp/nodejs";
 import { sp } from "@pnp/sp";
 import * as path from "path";
 import * as fs from "fs";
+import * as glob from "glob";
 
 function checkEnv(name: string) {
   if (process.env[name] === undefined) {
@@ -22,8 +23,7 @@ async function run() {
   console.dir(process.env.INPUT_RELATIVE_URL);
   console.dir(process.env.INPUT_GLOB);
 
-  return;
-
+/*
   sp.setup({
     sp: {
       fetchClientFactory: () => {
@@ -36,13 +36,20 @@ async function run() {
   });
 
   const folder = await sp.web.getFolderByServerRelativeUrl(process.env.INPUT_RELATIVE_URL);
+*/
 
+  /*
   const dir = __dirname + path.sep + ".." + path.sep + "glob" + path.sep;
   const files = fs.readdirSync(dir);
+*/
+
+  console.dir(process.cwd);
+  const files = glob.sync(process.env.INPUT_GLOB, {nodir: true})
+  console.dir(files);
   for (const filename of files) {
     console.log("Uploading: " + filename);
-    const buf = fs.readFileSync(dir + filename);
-    await folder.files.add(filename, buf, true);
+//    const buf = fs.readFileSync(filename);
+//    await folder.files.add(filename, buf, true);
   }
 
 }
