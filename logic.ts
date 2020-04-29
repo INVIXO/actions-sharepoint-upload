@@ -40,16 +40,11 @@ async function run() {
   const folder = await sp.web.getFolderByServerRelativeUrl(process.env.INPUT_RELATIVE_URL);
 */
 
-  /*
-  const dir = __dirname + path.sep + ".." + path.sep + "glob" + path.sep;
-  const files = fs.readdirSync(dir);
-*/
-
   const files = glob.sync(process.env.INPUT_GLOB, {nodir: true})
   console.dir(files);
   for (const filename of files) {
     console.log("Uploading: " + filename);
-//    const buf = fs.readFileSync(filename);
+    const buf = fs.readFileSync(process.cwd() + path.sep + filename);
 //    await folder.files.add(filename, buf, true);
   }
 
