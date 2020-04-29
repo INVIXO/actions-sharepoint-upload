@@ -5,7 +5,9 @@ import * as fs from "fs";
 
 async function run() {
   console.dir(process.env);
-  console.dir("hello world");
+  console.dir("hello world1");
+  console.dir(process.env.SITE_URL);
+  console.dir("hello world2");
   return;
 
   if (process.env.SITE_URL === undefined) {
