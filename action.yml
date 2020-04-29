@@ -1,0 +1,9 @@
+name: actions-sharepoint-upload
+description: Upload files to SharePoint
+author: INVIXO
+branding:
+  color: green
+  icon: cloud-drizzle
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
