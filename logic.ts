@@ -11,6 +11,8 @@ function checkEnv(name: string) {
 }
 
 async function run() {
+  console.log("CWD: " + process.cwd());
+
   checkEnv("INPUT_SITE_URL");
   checkEnv("INPUT_CLIENT_ID");
   checkEnv("INPUT_CLIENT_SECRET");
@@ -43,7 +45,6 @@ async function run() {
   const files = fs.readdirSync(dir);
 */
 
-  console.dir(process.cwd);
   const files = glob.sync(process.env.INPUT_GLOB, {nodir: true})
   console.dir(files);
   for (const filename of files) {
