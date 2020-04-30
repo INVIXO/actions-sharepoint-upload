@@ -39,9 +39,9 @@ async function run() {
   const files = glob.sync(process.env.INPUT_GLOB, {nodir: true})
   console.dir(files);
   for (const filename of files) {
-    console.log("Uploading: " + filename);
+    console.log("Uploading: " + path.basename(filename));
     const buf = fs.readFileSync(process.cwd() + path.sep + filename);
-    await folder.files.add(filename, buf, true);
+    await folder.files.add(path.basename(filename), buf, true);
   }
 }
 
