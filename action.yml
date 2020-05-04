@@ -1,0 +1,31 @@
+name: actions-sharepoint-upload
+description: Upload files to SharePoint
+author: INVIXO
+branding:
+  color: green
+  icon: cloud-drizzle
+inputs:
+  site_url:
+    description: 'site_url'
+    required: true
+  client_id:
+    description: 'client_id'
+    required: true
+  client_secret:
+    description: 'client_secret'
+    required: true
+  relative_url:
+    description: 'relative_url'
+    required: true
+  glob:
+    description: 'glob'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    INPUT_SITE_URL: ${{ inputs.site_url }}
+    INPUT_CLIENT_ID: ${{ inputs.client_id }}
+    INPUT_CLIENT_SECRET: ${{ inputs.client_secret }}
+    INPUT_RELATIVE_URL: ${{ inputs.relative_url }}
+    INPUT_GLOB: ${{ inputs.glob }}

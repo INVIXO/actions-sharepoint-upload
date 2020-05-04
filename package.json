@@ -1,0 +1,27 @@
+{
+  "name": "actions-sharepoint-upload",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Github Actions - Upload files to sharepoint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INVIXO/actions-sharepoint-upload.git"
+  },
+  "author": "INVIXO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/INVIXO/actions-sharepoint-upload/issues"
+  },
+  "homepage": "https://github.com/INVIXO/actions-sharepoint-upload#readme",
+  "dependencies": {
+    "@types/glob": "^7.1.1",
+    "glob": "^7.1.6",
+    "ts-node": "^8.9.1",
+    "@pnp/common": "^1.3.11",
+    "@pnp/logging": "^1.3.11",
+    "@pnp/nodejs": "^1.3.11",
+    "@pnp/odata": "^1.3.11",
+    "@pnp/sp": "^1.3.11",
+    "typescript": "^3.8.3"
+  }
+}
