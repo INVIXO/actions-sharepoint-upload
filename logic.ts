@@ -17,7 +17,8 @@ async function run() {
   checkEnv("INPUT_RELATIVE_URL");
   checkEnv("INPUT_GLOB");
 
-  console.log("CWD: " + process.cwd());
+  const cwd = process.env.GITHUB_WORKSPACE;
+  console.log("CWD: " + cwd);
   console.log("Input SITE_URL: " + process.env.INPUT_SITE_URL);
   console.log("Input CLIENT_ID: " + process.env.INPUT_CLIENT_ID);
   console.log("Input RELATIVE_URL: " + process.env.INPUT_RELATIVE_URL);
@@ -36,11 +37,11 @@ async function run() {
 
   const folder = sp.web.getFolderByServerRelativeUrl(process.env.INPUT_RELATIVE_URL!);
 
-  const files = glob.sync(process.env.INPUT_GLOB!, {nodir: true})
+  const files = glob.sync(cwd + path.sep + process.env.INPUT_GLOB!, {nodir: true})
   console.dir(files);
   for (const filename of files) {
     console.log("Uploading: " + path.basename(filename));
-    const buf = fs.readFileSync(process.cwd() + path.sep + filename);
+    const buf = fs.readFileSync(cwd + path.sep + filename);
     await folder.files.add(path.basename(filename), buf, true);
   }
 }
