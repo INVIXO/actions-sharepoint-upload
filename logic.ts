@@ -1,8 +1,8 @@
-import { SPFetchClient } from "@pnp/nodejs";
-import { sp } from "@pnp/sp";
-import * as path from "path";
-import * as fs from "fs";
-import * as glob from "glob";
+const SPFetchClient = require("@pnp/nodejs").SPFetchClient;
+const sp = require("@pnp/sp").sp;
+const path = require("path");
+const fs = require("fs");
+const glob = require("glob");
 
 function checkEnv(name: string) {
   if (process.env[name] === undefined) {
