@@ -45,7 +45,7 @@ async function run() {
   }
   for (const filename of files) {
     console.log("Uploading: " + path.basename(filename));
-    const buf = fs.readFileSync(cwd + path.sep + filename);
+    const buf = fs.readFileSync(filename);
     await folder.files.add(path.basename(filename), buf, true);
   }
 }
