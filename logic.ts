@@ -27,16 +27,16 @@ async function run() {
     sp: {
       fetchClientFactory: () => {
         return new SPFetchClient(
-          process.env.INPUT_SITE_URL,
-          process.env.INPUT_CLIENT_ID,
-          process.env.INPUT_CLIENT_SECRET);
+          process.env.INPUT_SITE_URL!,
+          process.env.INPUT_CLIENT_ID!,
+          process.env.INPUT_CLIENT_SECRET!);
       },
     },
   });
 
-  const folder = sp.web.getFolderByServerRelativeUrl(process.env.INPUT_RELATIVE_URL);
+  const folder = sp.web.getFolderByServerRelativeUrl(process.env.INPUT_RELATIVE_URL!);
 
-  const files = glob.sync(process.env.INPUT_GLOB, {nodir: true})
+  const files = glob.sync(process.env.INPUT_GLOB!, {nodir: true})
   console.dir(files);
   for (const filename of files) {
     console.log("Uploading: " + path.basename(filename));
