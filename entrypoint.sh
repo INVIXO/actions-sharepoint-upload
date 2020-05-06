@@ -1,5 +1,4 @@
 #!/bin/sh
-ls /
 pwd
 cd /
 pwd
